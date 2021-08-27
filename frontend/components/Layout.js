@@ -1,11 +1,12 @@
-import React from "react";
-import Navbar from "~/components/Navbar";
+import { Box } from '@material-ui/core';
+import React from 'react';
+import Navbar from '~/components/Navbar';
 
 const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <main>{children}</main>
+      <Box sx={{ m: 3 }}>{children}</Box>
     </div>
   );
 };
