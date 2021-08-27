@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["next/core-web-vitals", "next/babel"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": "babel-plugin-root-import"
+  }
+}
