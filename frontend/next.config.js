@@ -4,7 +4,7 @@ module.exports = {
   reactStrictMode: true,
   env: {
     apiUrl: process.env.API_URL || 'http://localhost:1337',
-    imageBaseUrl: process.env.API_URL || 'http://localhost:1337',
+    imageBaseUrl: process.env.IMAGE_BASE_URL || 'http://localhost:1337',
     social: {
       instagram: 'nucleoeiras_',
     },

@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file: .backend.env
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 3306
+      DATABASE_NAME: nucleoeiras
+      DATABASE_USERNAME: nucleoeiras
+      DATABASE_PASSWORD: nucleoeiras
+      # Add the following env variables to .backend.env
+      # JWT_SECRET: <change me>
+      # ADMIN_JWT_SECRET: <change me>
+    ports:
+      - 8000:1337
+    volumes:
+      - ./uploads:/app/public/uploads
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - 8001:3000
+    volumes:
+      - next:/app/.next
+  db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
+      MARIADB_DATABASE: nucleoeiras
+      MARIADB_USER: nucleoeiras
+      MARIADB_PASSWORD: nucleoeiras
+    volumes:
+      - database:/var/lib/mysql
+
+volumes:
+  next:
+  database:
