@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <Box sx={{ m: 3 }}>{children}</Box>
+      <Box my={3}>{children}</Box>
     </div>
   );
 };

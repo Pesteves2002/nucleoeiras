@@ -1,6 +1,9 @@
+import { Container, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/system';
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import React from 'react';
+import BackendImage from '~/components/BackendImage';
 import Layout from '~/components/Layout';
 import Markdown from '~/components/text/Markdown';
 import { fetchAPI } from '~/lib/graphql';
@@ -13,7 +16,20 @@ const ArticlePage = ({ article }) => {
         <meta name='description' content='NucleOeiras' />
       </Head>
 
-      <Markdown>{article?.content || ''}</Markdown>
+      <Container sx={{ textAlign: 'justify' }}>
+        <Typography variant='h3' component='h1'>
+          {article?.title}
+        </Typography>
+        <Typography variant='h5' component='h2' color='text.secondary' gutterBottom>
+          {article?.description}
+        </Typography>
+
+        <Box textAlign='center'>
+          <BackendImage src={article?.image?.url} />
+        </Box>
+
+        <Markdown>{article?.content || ''}</Markdown>
+      </Container>
     </Layout>
   );
 };
@@ -21,7 +37,6 @@ const ArticlePage = ({ article }) => {
 const ARTICLE_PAGE_QUERY = gql`
   query ARTICLE_PAGE_QUERY($id: ID!) {
     article(id: $id) {
-      id
       title
       description
       created_at

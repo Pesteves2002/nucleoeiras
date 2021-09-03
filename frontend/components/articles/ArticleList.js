@@ -4,7 +4,7 @@ import ArticleSummary from '~/components/articles/ArticleSummary';
 
 const ArticleList = ({ articles }) => {
   return (
-    <Paper variant='outlined' sx={{ p: 2 }}>
+    <Paper variant='outlined' sx={{ p: 2, mx: 3 }}>
       <Typography gutterBottom variant='h2'>
         Notícias
       </Typography>

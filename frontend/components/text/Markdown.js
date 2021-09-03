@@ -1,7 +1,17 @@
-import { Link, Typography } from '@material-ui/core';
+import {
+  Link,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@material-ui/core';
+import { Box } from '@material-ui/system';
 import ReactMarkdown from 'markdown-to-jsx';
 import PropTypes from 'prop-types';
 import React from 'react';
+import BackendImage from '../BackendImage';
 
 const markdownOptions = {
   overrides: {
@@ -20,22 +30,20 @@ const markdownOptions = {
     },
     p: { component: Typography, props: { paragraph: true } },
     a: { component: Link },
-    li: {
+    li: { component: Typography, props: { component: 'li' } },
+    img: {
       component: ({ ...props }) => (
-        <li>
-          <Typography component='span' {...props} />
-        </li>
+        <Box textAlign='center'>
+          <BackendImage {...props} />
+        </Box>
       ),
     },
-    img: {
-      // eslint-disable-next-line react/prop-types
-      component: ({ src, ...props }) => {
-        const newSrc = (src || '').startsWith('/')
-          ? `${process.env.imageBaseUrl}${src || ''}`
-          : src;
-        return <img src={newSrc} {...props} />;
-      },
-    },
+    table: { component: Table },
+    thead: { component: TableHead },
+    th: { component: TableCell },
+    tr: { component: TableRow },
+    td: { component: TableCell },
+    tbody: { component: TableBody },
   },
 };
 
