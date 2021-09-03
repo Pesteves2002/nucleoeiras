@@ -1,17 +1,35 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/MenuRounded';
+import { AppBar, Box, IconButton, Toolbar, Typography, useScrollTrigger } from '@material-ui/core';
+import BackIcon from '@material-ui/icons/ArrowBackRounded';
 import Link from 'next/link';
 import React from 'react';
 import InstagramIcon from '~/icons/InstagramIcon';
 
-const Navbar = () => {
+const Navbar = ({ backUrl, transparentNavbar }) => {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 150,
+  });
+
+  const transparent = transparentNavbar && !trigger;
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+      <AppBar elevation={transparent ? 0 : 4} color={(transparent && 'transparent') || undefined}>
         <Toolbar>
-          <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
+          {backUrl && (
+            <Link href={backUrl} passHref>
+              <IconButton
+                size='large'
+                edge='start'
+                color='inherit'
+                aria-label='back'
+                sx={{ mr: 2 }}
+                component='a'
+              >
+                <BackIcon />
+              </IconButton>
+            </Link>
+          )}
           <Link href='/' passHref>
             <Typography
               variant='h6'
@@ -33,6 +51,7 @@ const Navbar = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
+      {!transparentNavbar && <Toolbar />}
     </Box>
   );
 };

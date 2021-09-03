@@ -10,7 +10,7 @@ import { fetchAPI } from '~/lib/graphql';
 
 const ArticlePage = ({ article }) => {
   return (
-    <Layout>
+    <Layout backUrl='/'>
       <Head>
         <title>NucleOeiras</title>
         <meta name='description' content='NucleOeiras' />

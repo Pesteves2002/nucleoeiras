@@ -1,16 +1,19 @@
 import gql from 'graphql-tag';
 import Head from 'next/head';
 import ArticleList from '~/components/articles/ArticleList';
+import Hero from '~/components/home/Hero';
 import Layout from '~/components/Layout';
 import { fetchAPI } from '~/lib/graphql';
 
 const Home = ({ articles }) => {
   return (
-    <Layout>
+    <Layout transparentNavbar>
       <Head>
         <title>NucleOeiras</title>
         <meta name='description' content='NucleOeiras' />
       </Head>
+
+      <Hero />
 
       <ArticleList articles={articles} />
     </Layout>
