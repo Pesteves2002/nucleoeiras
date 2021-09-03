@@ -24,7 +24,7 @@ const ArticlePage = ({ article }) => {
           {article?.description}
         </Typography>
 
-        <Box textAlign='center'>
+        <Box textAlign='center' my={2}>
           <BackendImage src={article?.image?.url} />
         </Box>
 
