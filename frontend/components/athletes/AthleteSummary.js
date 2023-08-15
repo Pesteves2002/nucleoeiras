@@ -2,7 +2,6 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mater
 import React from 'react';
 import Link from 'next/link';
 
-// TODO: see this
 const AthleteSummary = ({ athlete }) => {
   return (
     <Card sx={{ height: '100%' }}>
@@ -21,18 +20,12 @@ const AthleteSummary = ({ athlete }) => {
             <CardMedia
               component='img'
               image={`${process.env.imageBaseUrl}${athlete.image?.url}`}
-              alt={athlete.title}
+              alt={athlete.name}
             />
           )}
           <CardContent>
-            <Typography variant='caption' color='text.secondary'>
-              {new Date(athlete.created_at).toLocaleString('pt-PT')}
-            </Typography>
             <Typography gutterBottom variant='h5' component='div'>
-              {athlete.title}
-            </Typography>
-            <Typography variant='body2' color='text.secondary'>
-              {athlete.description}
+              {athlete.name}
             </Typography>
           </CardContent>
         </CardActionArea>
