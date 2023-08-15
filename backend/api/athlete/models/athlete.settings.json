@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "athletes",
+  "info": {
+    "name": "Athlete",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "events": {
+      "collection": "event"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    }
+  }
+}

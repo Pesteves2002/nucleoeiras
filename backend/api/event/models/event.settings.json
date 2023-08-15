@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "result": {
+      "type": "string"
+    },
+    "place": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "date"
+    },
+    "distance": {
+      "type": "integer"
+    }
+  }
+}
