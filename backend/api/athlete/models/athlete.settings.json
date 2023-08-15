@@ -21,6 +21,32 @@
     "slug": {
       "type": "uid",
       "targetField": "name"
+    },
+    "birth": {
+      "type": "date"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "category": {
+      "type": "string"
     }
   }
 }
