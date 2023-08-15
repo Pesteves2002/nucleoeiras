@@ -18,7 +18,7 @@
     },
     {
       "method": "GET",
-      "path": "/athletes/:id",
+      "path": "/athletes/:slug",
       "handler": "athlete.findOne",
       "config": {
         "policies": []

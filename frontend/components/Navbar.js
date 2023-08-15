@@ -40,6 +40,16 @@ const Navbar = ({ backUrl, transparentNavbar }) => {
               NucleOeiras
             </Typography>
           </Link>
+          <Link href='/athletes' passHref>
+            <Typography
+              variant='h6'
+              component='div'
+              sx={{ flexGrow: 4, color: 'text.primary', textDecoration: 'none' }}
+              component='a'
+            >
+              Athletes
+            </Typography>
+          </Link>
           <IconButton
             href={`https://www.instagram.com/${process.env.social.instagram}/`}
             target='_blank'
