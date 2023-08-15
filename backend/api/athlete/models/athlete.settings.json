@@ -17,6 +17,10 @@
     },
     "events": {
       "collection": "event"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
