@@ -40,6 +40,9 @@ const Navbar = ({ backUrl, transparentNavbar }) => {
               NucleOeiras
             </Typography>
           </Link>
+          <Link href='/athletes' passHref>
+            Athletes
+          </Link>
           <IconButton
             href={`https://www.instagram.com/${process.env.social.instagram}/`}
             target='_blank'
